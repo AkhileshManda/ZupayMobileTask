@@ -8,10 +8,10 @@ import 'package:zupaytask/view/cart_screen.dart';
 import 'package:zupaytask/view/home_screen.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDirectory = await path_provider.getApplicationDocumentsDirectory();
-    Hive
+  Hive
     ..init(appDirectory.path)
     ..registerAdapter(ProductAdapter());
   runApp(const MyApp());
@@ -29,12 +29,9 @@ class MyApp extends StatelessWidget {
           create: (ctx) => CartController(),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(),
+        home: MyHomePage(),
       ),
     );
   }
@@ -74,21 +71,23 @@ class _MyHomePageState extends State<MyHomePage> {
             onPageChanged: (index) {
               setState(() => _currentIndex = index);
             },
-            children: <Widget>[const HomePage(), CartScreen()],
+            children: const<Widget>[HomePage(), CartScreen()],
           ),
         ),
       ),
       bottomNavigationBar: BottomNavyBar(
+        //backgroundColor: Colors.,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
           _pageController.jumpToPage(index);
         },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(title: Text('Home'), icon: Icon(Icons.home)),
+        items:<BottomNavyBarItem>[
+          BottomNavyBarItem(title:const Text('Home'), icon: const Icon(Icons.home), activeColor: Colors.black),
           BottomNavyBarItem(
-              title: Text('Cart'), icon: Icon(Icons.shopping_bag_outlined)),
+            activeColor: Colors.black,
+              title: const Text('Cart'), icon: const Icon(Icons.shopping_bag_outlined)),
         ],
       ),
     );

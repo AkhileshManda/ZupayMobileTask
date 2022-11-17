@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zupaytask/controller/cart_controller.dart';
 
+// ignore: must_be_immutable
 class CartElements extends StatefulWidget {
   final String id;
   final String productId;
@@ -25,9 +26,9 @@ class _CartElementsState extends State<CartElements> {
       background: Container(
         color: Theme.of(context).errorColor,
         alignment: Alignment.centerRight,
-        padding: EdgeInsets.only(right: 20),
-        margin: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
-        child: Icon(
+        padding: const EdgeInsets.only(right: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+        child: const Icon(
           Icons.delete,
           color: Colors.white,
           size: 40,
@@ -39,7 +40,7 @@ class _CartElementsState extends State<CartElements> {
             //show dialogue itself returns a future
             context: context,
             builder: (ctx) => AlertDialog(
-                  title: Text(
+                  title: const Text(
                     'Are You Sure?',
                     style: TextStyle(
                         color: Colors.black,
@@ -48,18 +49,18 @@ class _CartElementsState extends State<CartElements> {
                         fontWeight: FontWeight.bold),
                   ),
                   content:
-                      Text('Do you want to remove the item from the cart?'),
+                      const Text('Do you want to remove the item from the cart?'),
                   actions: [
                     ElevatedButton(
                         onPressed: () {
                           Navigator.of(ctx).pop(false);
                         },
-                        child: Text('No')),
+                        child: const Text('No')),
                     ElevatedButton(
                         onPressed: () {
                           Navigator.of(ctx).pop(true);
                         },
-                        child: Text('Yes')),
+                        child: const Text('Yes')),
                   ],
                 ));
       },
@@ -67,9 +68,9 @@ class _CartElementsState extends State<CartElements> {
         cart.removeItem(widget.productId);
       },
       child: Card(
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 4),
+          margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
           child: Padding(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Row(
               children: [
                 Padding(
@@ -86,7 +87,7 @@ class _CartElementsState extends State<CartElements> {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis, // new
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -105,7 +106,7 @@ class _CartElementsState extends State<CartElements> {
                               )
                             ],
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Row(
                             children: [
                               InkWell(
@@ -118,7 +119,7 @@ class _CartElementsState extends State<CartElements> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black)),
-                                  child: Center(child: Icon(Icons.remove,size: 10,)),
+                                  child: const Center(child: Icon(Icons.remove,size: 10,)),
                                 ),
                               ),
                               Padding(

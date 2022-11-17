@@ -22,56 +22,77 @@ class CartScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (ctx, i) => 
-              CartElements(
-                // items in cart.dart returns a copy of a map hence we have to use .values.toList()
-                cart.items.values.toList()[i].id,
-                cart.items.keys.toList()[i],
-                cart.items.values.toList()[i].price,
-                cart.items.values.toList()[i].quantity,
-                cart.items.values.toList()[i].title,
-                cart.items.values.toList()[i].img,
-              ),
-              itemCount: cart.itemCount,
-            ),
+            child: cart.itemCount > 0
+                ? ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (ctx, i) => CartElements(
+                      // items in cart.dart returns a copy of a map hence we have to use .values.toList()
+                      cart.items.values.toList()[i].id,
+                      cart.items.keys.toList()[i],
+                      cart.items.values.toList()[i].price,
+                      cart.items.values.toList()[i].quantity,
+                      cart.items.values.toList()[i].title,
+                      cart.items.values.toList()[i].img,
+                    ),
+                    itemCount: cart.itemCount,
+                  )
+                : const Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(50.0),
+                      child: Text(
+                          "Your cart is empty, add products to place an order",
+                          softWrap: false,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 15)),
+                    ),
+                  ),
           ),
           const SizedBox(
             height: 10,
           ),
-          Card(
-            elevation: 0,
-            margin: const EdgeInsets.all(10),
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Total Price',
-                    style: TextStyle(fontSize: 20),
+          cart.itemCount > 0
+              ? Card(
+                  elevation: 0,
+                  margin: const EdgeInsets.all(10),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Total Price',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        const Spacer(), // interesting widget if using mainaxis alignment
+                        Text('\$ ${cart.totalAmount.toStringAsFixed(2)}',
+                            style: const TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold)),
+                      ],
+                    ),
                   ),
-                  const Spacer(), // interesting widget if using mainaxis alignment
-                  Text(
-                    '\$ ${cart.totalAmount.toStringAsFixed(2)}',
+                )
+              : const SizedBox(),
+          cart.itemCount > 0
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.black)),
+                        onPressed: () {
+                          cart.clear();
+                        },
+                        child: const Text("Order Now")),
                   ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                  onPressed: () {
-                    cart.clear();
-                  },
-                  child: const Text("Order Now")),
-            ),
-          ),
+                )
+              : const SizedBox(),
         ],
       ),
     );
