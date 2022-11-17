@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
               future: getAlldata(),
               builder: ((context, AsyncSnapshot<bool> snapshot) {
                 if (snapshot.hasError) {
-                  //print(snapshot.error);
+                  print(snapshot.error);
                   return const Center(
                     child: Text('An error has occurred!'),
                   );
