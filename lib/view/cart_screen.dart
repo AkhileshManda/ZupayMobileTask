@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zupaytask/controller/cart_controller.dart';
+import 'package:zupaytask/main.dart';
 import 'package:zupaytask/view/widgets/cart_items.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,12 @@ class CartScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const MyHomePage())));
+            }),
         title: const Text("Your Cart", style: TextStyle(color: Colors.black)),
         centerTitle: true,
         elevation: 0,
@@ -88,6 +94,28 @@ class CartScreen extends StatelessWidget {
                                 MaterialStateProperty.all(Colors.black)),
                         onPressed: () {
                           cart.clear();
+                          showDialog(
+                              //show dialogue itself returns a future
+                              context: context,
+                              builder: (ctx) => AlertDialog(
+                                    title: const Text(
+                                      'Order Placed!',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontFamily: "Lato",
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    content: const Text(
+                                        'Please look at your mail for confirmation'),
+                                    actions: [
+                                      ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.of(ctx).pop(true);
+                                          },
+                                          child: const Text('Ok')),
+                                    ],
+                                  ));
                         },
                         child: const Text("Order Now")),
                   ),

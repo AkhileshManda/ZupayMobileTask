@@ -29,11 +29,11 @@ class ProductsList extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.15,
                   child: CachedNetworkImage(
                     imageUrl: products[index].image.toString(),
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) =>
-                            CircularProgressIndicator(
-                                value: downloadProgress.progress),
-                    errorWidget: (context, url, error) => const Icon(Icons.error, size: 10,),
+                    progressIndicatorBuilder: (context, url, progress) => const SizedBox(),
+                    errorWidget: (context, url, error) => const Icon(
+                      Icons.error,
+                      size: 10,
+                    ),
                   ),
                 ),
                 // SizedBox(
@@ -77,7 +77,7 @@ class ProductsList extends StatelessWidget {
                             .hideCurrentSnackBar(); //will hide if there already exist some snackbar
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: const Text(
-                            "Added items to cart",
+                            "Added product to cart",
                           ),
                           duration: const Duration(seconds: 2),
                           action: SnackBarAction(
