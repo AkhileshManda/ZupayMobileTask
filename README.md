@@ -17,12 +17,8 @@
 
 ## Screenshots of Application
 
-![WhatsApp Image 2022-11-17 at 19.51.53.jpeg](Zupay%20Task%20-%20Akhilesh%20Manda%2022dbe5ec2a5046c3a171620186560894/WhatsApp_Image_2022-11-17_at_19.51.53.jpeg)
-
-![WhatsApp Image 2022-11-17 at 19.51.39.jpeg](Zupay%20Task%20-%20Akhilesh%20Manda%2022dbe5ec2a5046c3a171620186560894/WhatsApp_Image_2022-11-17_at_19.51.39.jpeg)
-
-![WhatsApp Image 2022-11-17 at 19.51.18.jpeg](Zupay%20Task%20-%20Akhilesh%20Manda%2022dbe5ec2a5046c3a171620186560894/WhatsApp_Image_2022-11-17_at_19.51.18.jpeg)
-
-![WhatsApp Image 2022-11-17 at 19.50.50.jpeg](Zupay%20Task%20-%20Akhilesh%20Manda%2022dbe5ec2a5046c3a171620186560894/WhatsApp_Image_2022-11-17_at_19.50.50.jpeg)
-
-![WhatsApp Image 2022-11-17 at 19.51.02.jpeg](Zupay%20Task%20-%20Akhilesh%20Manda%2022dbe5ec2a5046c3a171620186560894/WhatsApp_Image_2022-11-17_at_19.51.02.jpeg)
+![home](https://user-images.githubusercontent.com/70640191/202476272-56bf656d-d213-4608-996d-66e9c05db77c.jpeg)
+![empty_cart](https://user-images.githubusercontent.com/70640191/202476292-4869625c-5f25-4652-bdf8-9b91972a0dd2.jpeg)
+![added_item](https://user-images.githubusercontent.com/70640191/202476316-03924ba0-3968-4beb-8faf-d1519ab58f70.jpeg)
+![loaded_cart](https://user-images.githubusercontent.com/70640191/202476324-6f41f4de-ade0-4bac-87fd-a42a3ab2b8de.jpeg)
+![order_placed](https://user-images.githubusercontent.com/70640191/202476331-8b21ed9b-2715-49df-a3fa-9b4fa2bac99e.jpeg)
